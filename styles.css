@@ -1,0 +1,125 @@
+:root {
+  --bg: linear-gradient(135deg, #ffdee9, #b5fffc);
+  --text: #ff6f61;
+  --cake: #fff5e1;
+  --candle: #ffd700;
+  --flame: #ffb703;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+body.dark {
+  --bg: linear-gradient(135deg, #222, #3a3a3a);
+  --text: #ffe7d6;
+  --cake: #2d2d2d;
+  --candle: #ffa500;
+  --flame: #eb5e28;
+}
+
+#darkModeToggle {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  background: none;
+  border: none;
+  font-size: 1.75em;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.balloons {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 60vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: var(--text);
+  text-shadow: 2px 2px 8px #fff, 0 0 3px #ff6f61;
+  min-height: 1.4em;
+  transition: color 0.4s;
+}
+
+#nameInput {
+  margin-top: 1em;
+  padding: 0.75em;
+  font-size: 1em;
+  border-radius: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px #fff5e1;
+}
+
+#wishBtn {
+  padding: 1em 2em;
+  background: #fff500;
+  color: #222;
+  border: none;
+  font-size: 1.25em;
+  border-radius: 30px;
+  margin-left: 1em;
+  margin-top: 1em;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 24px rgba(255, 223, 39, 0.15);
+}
+#wishBtn:hover { background: #ffd600; transform: scale(1.05); }
+
+.cake {
+  margin: 2em auto 1.5em auto;
+  width: 160px;
+  height: 120px;
+  position: relative;
+}
+.cake-body {
+  width: 100%;
+  height: 70px;
+  background: var(--cake);
+  border-radius: 0 0 80px 80px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 10px 20px #adadad77;
+}
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+.candles .flame {
+  width: 8px; height: 18px;
+  background: var(--flame);
+  border-radius: 50% 50% 60% 60%;
+  animation: flame-flicker 1s infinite alternate;
+}
+@keyframes flame-flicker {
+  0% { filter: blur(1px) brightness(1); transform: translateY(0);}
+  100% { filter: blur(2px) brightness(1.6); transform: translateY(-3px);}
+}
+
+/* Confetti styles */
+#confetti {
+  position: fixed;
+  pointer-events: none;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 20;
+}
