@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday!</title>
+  <title>🎉 Happy Birthday!</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-  <button id="darkModeToggle" title="Toggle dark mode">🌙</button>
+  <button id="darkModeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+  <button id="musicToggle" title="Toggle background music" aria-label="Toggle music">🔊</button>
+
   <div class="container">
-    <div class="balloons"></div>
-    <h1 id="greeting"></h1>
-    <div class="cake">
+    <div class="balloons" aria-hidden="true"></div>
+
+    <h1 id="greeting" aria-live="polite">Happy Birthday!</h1>
+
+    <div class="cake" role="img" aria-label="Birthday Cake with candles">
       <div class="candles">
         <div class="flame"></div>
         <div class="flame"></div>
@@ -18,11 +23,16 @@
       </div>
       <div class="cake-body"></div>
     </div>
-    <input type="text" id="nameInput" placeholder="Enter your name..." />
+
+    <input type="text" id="nameInput" placeholder="Enter your name..." aria-label="Your name" autofocus />
     <button id="wishBtn">Make a Wish 🎂</button>
+
     <canvas id="confetti"></canvas>
+
     <audio id="popSound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_10c371de55.mp3" preload="auto"></audio>
+    <audio id="bgMusic" src="assets/music.mp3" preload="auto" loop></audio>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
